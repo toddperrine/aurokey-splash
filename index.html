@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AuroKey</title>
   <style>
     body {
@@ -19,16 +19,7 @@
       text-align: center;
       padding: 20px;
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #F2C94C;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      margin-bottom: 30px;
-      color: #D8D8D8;
-    }
+
     input[type=email] {
       padding: 12px 20px;
       font-size: 1rem;
@@ -37,6 +28,7 @@
       width: 280px;
       margin-bottom: 20px;
     }
+
     button {
       padding: 12px 24px;
       font-size: 1rem;
@@ -46,17 +38,33 @@
       cursor: pointer;
       font-weight: bold;
     }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 10px;
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo-container img {
+      width: 300px;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #F2C94C;
     }
   </style>
 </head>
 <body>
- <img src="AuroKey_Logo_Large.png" alt="AuroKey Logo" style="width: 312px; margin-bottom: 20px;" />
-  <input type="email" placeholder="Enter your email">
-  <br>
-  <button>Join the Waitlist</button>
+  <div class="logo-container">
+    <img src="AuroKey_Logo.png" alt="AuroKey Logo">
+  </div>
+
+  <h1>From Anywhere. To Everywhere.™</h1>
+
+  <form action="https://formspree.io/f/mnnzdyaa" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <br />
+    <button type="submit">Join the Waitlist</button>
+  </form>
 </body>
 </html>
