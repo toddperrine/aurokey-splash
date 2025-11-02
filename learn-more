@@ -35,7 +35,7 @@
     h1 {
       font-size: 1.5rem;
       font-weight: 500;
-      color: #F2C94C;
+      color: #CBA35B;
       margin-bottom: 16px;
       letter-spacing: 0.03em;
     }
@@ -66,7 +66,7 @@
     .button-primary {
       padding: 12px 24px;
       font-size: 1rem;
-      background-color: #F2C94C;
+      background-color: #CBA35B;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -75,20 +75,31 @@
       min-width: 220px;
       text-decoration: none;
       text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .button-primary:hover {
+      background-color: #B48C47;
     }
 
     .button-outline {
       padding: 12px 24px;
       font-size: 1rem;
       background-color: transparent;
-      border: 2px solid #F2C94C;
+      border: 2px solid #CBA35B;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      color: #F2C94C;
+      color: #CBA35B;
       min-width: 220px;
       text-decoration: none;
       text-align: center;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .button-outline:hover {
+      color: #E1BC6E;
+      border-color: #E1BC6E;
     }
 
     footer {
@@ -109,7 +120,6 @@
 </head>
 <body>
   <div class="content-wrapper">
-    <!-- reuse the same logo.png you already have -->
     <img src="logo.png" alt="AuroKey" class="logo-img">
 
     <h1>Effortless, exceptional travel</h1>
@@ -132,9 +142,26 @@
       People who expect things to work.
     </p>
 
+    <!-- New Platform Intelligence section -->
+    <div class="section-label">Platform Intelligence</div>
+    <p>
+      AuroKey is built on a modern cloud-native foundation designed for personalization, automation, and global scalability. 
+      Our orchestration engine learns traveler preferences and curates experiences that feel instinctively right — not algorithmic.
+    </p>
+
+    <p>
+      The platform combines secure cloud infrastructure with adaptive data models to deliver real-time recommendations and seamless integrations with partner systems.
+    </p>
+
+    <div class="section-label">Vision</div>
+    <p>
+      We believe travel should feel orchestrated, not managed. 
+      AuroKey’s goal is to create the invisible layer of intelligence that powers how modern travelers discover, decide, and move — quietly, intuitively, and beautifully.
+    </p>
+
     <div class="button-row">
       <a class="button-primary" href="index.html">Join the Waitlist</a>
-      <a class="button-outline" href="partners.html">Partner / Early Access</a>
+      <a class="button-outline" href="partners.html">Partner Access</a>
     </div>
 
     <footer>
