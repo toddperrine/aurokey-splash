@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,16 +18,20 @@
       text-align: center;
       padding: 20px;
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #F2C94C;
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 32px;
     }
-    p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      margin-bottom: 30px;
-      color: #D8D8D8;
+
+    .logo-img {
+      width: 320px;
+      max-width: 80vw;
+      height: auto;
     }
+
     input[type=email] {
       padding: 12px 20px;
       font-size: 1rem;
@@ -37,36 +40,68 @@
       width: 280px;
       margin-bottom: 20px;
     }
-    button {button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  background-color: #CBA35B;  /* deeper gold to match logo */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #0B0B0B;
-  transition: background-color 0.2s ease;
-}
-button:hover {
-  background-color: #B48C47;  /* darker hover gold */
-}
-}
-    .logo {
-      font-size: 1.5rem;
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #CBA35B;  /* gold to match logo */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
       font-weight: bold;
-      margin-bottom: 10px;
+      color: #0B0B0B;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #B48C47;  /* slightly darker on hover */
+    }
+
+    .links {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .links a {
+      color: #CBA35B;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+      color: #E1BC6E;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="logo">logo.png</div>
-   <input type="email" placeholder="Enter your email">
+  <div class="logo-wrapper">
+    <img src="logo.png" alt="AuroKey" class="logo-img">
+  </div>
+
+  <input type="email" placeholder="Enter your email">
   <br>
   <button>Join the Waitlist</button>
-  <div style="margin-top:24px; display:flex; flex-direction:column; gap:12px; align-items:center;">
-  <a href="learn-more.html" style="
-     padding:12px 24px;
-     font-size:
+
+  <div class="links">
+    <a href="learn-more.html">Learn More</a>
+    <a href="partners.html">Partner Access</a>
+  </div>
+
+  <footer>
+    © 2025 AuroKey. All rights reserved.
+  </footer>
 </body>
 </html>
+
