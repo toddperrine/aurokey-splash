@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuroKey — Learn More</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #0B0B0B;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .content-wrapper {
+      max-width: 600px;
+    }
+
+    .logo-img {
+      width: 240px;
+      max-width: 80vw;
+      height: auto;
+      display: block;
+      margin: 0 auto 32px auto;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #F2C94C;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #D8D8D8;
+      margin: 0 0 20px 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button-primary {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #F2C94C;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #0B0B0B;
+      min-width: 220px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .button-outline {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 2px solid #F2C94C;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #F2C94C;
+      min-width: 220px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    a.footer-link {
+      color: #777;
+      text-decoration: none;
+    }
+
+    a.footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <!-- reuse the same logo.png you already have -->
+    <img src="logo.png" alt="AuroKey" class="logo-img">
+
+    <h1>Effortless, exceptional travel</h1>
+
+    <p>
+      AuroKey quietly removes the work between “I want to go” and “we’re booked.”
+      We learn what matters to you — pace, taste, comfort, rhythm — and use that to
+      surface stays, experiences, and movement that feel like they were designed for you.
+    </p>
+
+    <p>
+      No public profiles. No scrolling through noise. No fifty open tabs.
+      You tell us where you are, where you want to be, and how you like to live.
+      We handle the rest with intelligent automation and human-level curation.
+    </p>
+
+    <div class="section-label">Who it’s for</div>
+    <p>
+      People who travel well. People who value time more than status.
+      People who expect things to work.
+    </p>
+
+    <div class="button-row">
+      <a class="button-primary" href="index.html">Join the Waitlist</a>
+      <a class="button-outline" href="partners.html">Partner / Early Access</a>
+    </div>
+
+    <footer>
+      <a class="footer-link" href="index.html">← Back to Home</a>
+    </footer>
+  </div>
+</body>
+</html>
