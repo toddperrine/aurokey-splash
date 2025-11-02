@@ -25,6 +25,12 @@
       margin-bottom: 30px;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     input[type=email] {
       padding: 12px 20px;
       font-size: 1rem;
@@ -32,12 +38,61 @@
       border-radius: 5px;
       width: 280px;
       margin-bottom: 20px;
-      text-align: center; /* Center input text */
+      text-align: center; /* center typed text */
     }
 
     input::placeholder {
-      text-align: center; /* Center placeholder text */
+      text-align: center; /* center placeholder text */
     }
 
     button {
-      padding: 12px 24
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #CBA35B; /* gold */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+    }
+
+    button:hover {
+      background-color: #E1BC6E;
+    }
+
+    .links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .links a {
+      color: #CBA35B;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+      color: #E1BC6E;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo image (gold AUROKEY text on black) -->
+  <img src="logo.png" alt="AuroKey" class="logo">
+
+  <!-- Waitlist form -->
+  <form>
+    <input type="email" placeholder="Enter your email">
+    <button type="submit">Join the Waitlist</button>
+  </form>
+
+  <!-- Page links -->
+  <div class="links">
+    <a href="learn-more.html">Learn More</a>
+    <a href="partners.html">Partner Access</a>
+  </div>
+</body>
+</html>
