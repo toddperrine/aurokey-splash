@@ -1,98 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuroKey</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #0B0B0B;
-      color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .logo {
-      width: 300px;
-      max-width: 80%;
-      margin-bottom: 30px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    input[type=email] {
-      padding: 12px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      width: 280px;
-      margin-bottom: 20px;
-      text-align: center; /* center typed text */
-    }
-
-    input::placeholder {
-      text-align: center; /* center placeholder text */
-    }
-
-    button {
-      padding: 12px 24px;
-      font-size: 1rem;
-      background-color: #CBA35B; /* gold */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #000;
-    }
-
-    button:hover {
-      background-color: #E1BC6E;
-    }
-
-    .links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .links a {
-      color: #CBA35B;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-      color: #E1BC6E;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AuroKey — Personal Travel OS</title>
 </head>
 <body>
-  <!-- Logo image (gold AUROKEY text on black) -->
-  <img src="logo.png" alt="AuroKey" class="logo">
 
-  <!-- Waitlist form -->
-  <form>
-    <input type="email" placeholder="Enter your email">
-    <button type="submit">Join the Waitlist</button>
-  </form>
+  <!-- HERO -->
+  <section id="hero">
+    <h1>A Personal Travel OS for Complex Trips</h1>
+    <p>
+      Always-on travel intelligence that helps you make better decisions—
+      when tradeoffs matter.
+    </p>
 
-  <!-- Page links -->
-  <div class="links">
-    <a href="learn-more.html">Learn More</a>
-    <a href="partners.html">Partner Access</a>
-  </div>
+    <!-- Waitlist form -->
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Join the Waitlist</button>
+    </form>
+
+    <!-- Page links -->
+    <div class="links">
+      <a href="learn-more.html">Learn More</a>
+      <a href="partners.html">Partner Access</a>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section id="what">
+    <h2>What AuroKey Is</h2>
+    <p>
+      AuroKey is not a booking site. It is a <strong>Personal Travel OS</strong>
+      designed to help people navigate complex travel decisions.
+    </p>
+    <p>
+      When trips involve multiple destinations, competing preferences,
+      real constraints, and unclear tradeoffs, AuroKey acts as a
+      <strong>decision engine</strong>, not just a planner.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2>How It Works</h2>
+    <p>
+      AuroKey continuously evaluates your travel options using your preferences,
+      your constraints, and real-world availability.
+    </p>
+    <ul>
+      <li>Recommends viable options</li>
+      <li>Explains why they make sense</li>
+      <li>Adapts as conditions change</li>
+    </ul>
+    <p>
+      This intelligence runs continuously—not just when you search.
+    </p>
+  </section>
+
+  <!-- DIFFERENTIATION -->
+  <section id="why-different">
+    <h2>Why This Is Different</h2>
+    <p>
+      Most travel platforms optimize transactions.
+      AuroKey optimizes <strong>decision quality</strong>.
+    </p>
+    <ul>
+      <li><strong>Memory:</strong> Persistent understanding of how you travel</li>
+      <li><strong>Preference learning:</strong> Evolving patterns, not static profiles</li>
+      <li><strong>Constraint resolution:</strong> Tradeoffs handled explicitly</li>
+      <li><strong>Tradeoff explanation:</strong> Transparent reasoning you can trust</li>
+    </ul>
+    <p>No existing platform owns this layer.</p>
+  </section>
+
+  <!-- POSITIONING -->
+  <section id="positioning">
+    <h2>Our Positioning</h2>
+    <p>Luxury is not the starting point.</p>
+    <p>It emerges later as:</p>
+    <ul>
+      <li>A pricing tier</li>
+      <li>A content layer</li>
+      <li>A concierge augmentation</li>
+    </ul>
+    <p>The foundation is intelligence.</p>
+  </section>
+
 </body>
 </html>
