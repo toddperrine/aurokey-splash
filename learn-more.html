@@ -1,86 +1,108 @@
-<link rel="stylesheet" href="./style.css">
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AuroKey — Learn More</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <section id="hero">
-    <h1>Personal Travel Intelligence, explained.</h1>
-    <p>
-      AuroKey learns what matters to you and turns that understanding into better travel decisions—
-      with far less effort.
-    </p>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="partners.html">Partner Access</a>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="AuroKey logo" />
+        <div class="wordmark">AuroKey</div>
+      </a>
+
+      <nav class="navlinks">
+        <a href="learn-more.html">Learn More</a>
+        <a href="partners.html">Partner Access</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="themeToggle" type="button">Light / Dark</button>
+        <a class="btn btn-primary" href="index.html#waitlist">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Personal Travel Intelligence, explained</div>
+      <h1>Better travel decisions—without the effort.</h1>
+      <p class="lead">
+        AuroKey learns what you value and turns that into fewer, stronger options—clearly explained,
+        so you can commit fast and feel great about it.
+      </p>
     </div>
   </section>
 
-  <section id="what-it-means">
-    <h2>What “Personal” Means</h2>
-    <p>
-      AuroKey gets better over time because it remembers.
-      It builds a living understanding of how you like to travel—pace, comfort, food, neighborhoods,
-      airlines, budget, “musts,” and “never-agains.”
-    </p>
-    <p>
-      So you don’t have to start from scratch every trip.
-    </p>
-  </section>
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
 
-  <section id="what-intelligence-means">
-    <h2>What “Intelligence” Means</h2>
-    <p>
-      AuroKey doesn’t just show you options. It helps you decide.
-    </p>
-    <p>
-      It produces a small number of strong choices and makes the tradeoffs clear—
-      so you can move forward confidently.
-    </p>
-  </section>
+      <div class="grid-3">
+        <div class="card">
+          <h3>1) Capture what matters</h3>
+          <p>Not just budget and dates—pace, vibe, food, comfort, “never-agains,” and your standards.</p>
+        </div>
+        <div class="card">
+          <h3>2) Produce decision-grade options</h3>
+          <p>Three strong choices with tradeoffs, risks, and why each fits.</p>
+        </div>
+        <div class="card">
+          <h3>3) Improve the next trip</h3>
+          <p>Every cycle updates your preferences so your next decision takes less time.</p>
+        </div>
+      </div>
 
-  <section id="the-flow">
-    <h2>What Using AuroKey Looks Like</h2>
-    <ol>
-      <li>You describe the trip in your own words.</li>
-      <li>AuroKey returns a few options that fit you.</li>
-      <li>Each option includes what you’re choosing and what you’re giving up.</li>
-      <li>You choose. AuroKey learns. The next trip gets easier.</li>
-    </ol>
-  </section>
+      <hr class="soft" />
 
-  <section id="outcomes">
-    <h2>What You Get</h2>
-    <ul>
-      <li><strong>Less effort</strong> — far less planning work on your side</li>
-      <li><strong>Better decisions</strong> — options shaped around what you value</li>
-      <li><strong>More travel</strong> — fewer blockers between “we should go” and “we’re going”</li>
-      <li><strong>More confidence</strong> — clear tradeoffs, less second-guessing</li>
-    </ul>
-  </section>
+      <div class="split">
+        <div class="device-card">
+          <img class="screenshot" src="screenshotsdecision-light.PNG" alt="Decision summary light" />
+        </div>
+        <div class="card">
+          <h3>Tradeoffs are explicit</h3>
+          <p>
+            You don’t just get a recommendation. You get the “why,” the key tradeoffs,
+            and the risks that matter—so you can decide confidently.
+          </p>
+          <hr class="soft" />
+          <p class="small">
+            This is the wedge: memory, preference learning, constraint resolution, and tradeoff explanation.
+            No platform owns that layer.
+          </p>
+        </div>
+      </div>
 
-  <section id="cta">
-    <h2>Join the Waitlist</h2>
-    <p>
-      If you want to travel better and travel more—without doing all the work—join the waitlist.
-    </p>
-
-    <!-- Waitlist form -->
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Join the Waitlist</button>
-    </form>
-
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="partners.html">Partner Access</a>
     </div>
   </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="small">© AuroKey. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const savedTheme = localStorage.getItem("aurokey_theme");
+  if(savedTheme){ root.setAttribute("data-theme", savedTheme); }
+
+  themeToggle.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("aurokey_theme", next);
+  });
+</script>
 
 </body>
 </html>
-
