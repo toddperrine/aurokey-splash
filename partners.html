@@ -1,51 +1,103 @@
-<link rel="stylesheet" href="./style.css">
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AuroKey — Partner Access</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <section id="hero">
-    <h1>Partner Access</h1>
-    <p>
-      AuroKey is building the intelligence layer that makes travel decisions easier, faster, and more personal.
-      If you want to collaborate, integrate, or explore early partner opportunities, reach out.
-    </p>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="learn-more.html">Learn More</a>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="AuroKey logo" />
+        <div class="wordmark">AuroKey</div>
+      </a>
+
+      <nav class="navlinks">
+        <a href="learn-more.html">Learn More</a>
+        <a href="partners.html">Partner Access</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="themeToggle" type="button">Light / Dark</button>
+        <a class="btn btn-primary" href="index.html#waitlist">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Partner Access</div>
+      <h1>The intelligence layer travel platforms don’t have.</h1>
+      <p class="lead">
+        AuroKey improves decision quality—powered by memory, preference learning, constraint resolution,
+        and clear tradeoff explanation.
+      </p>
     </div>
   </section>
 
-  <section id="who">
-    <h2>Who This Is For</h2>
-    <ul>
-      <li>Property and membership networks</li>
-      <li>Experience providers</li>
-      <li>Travel advisors and concierge teams</li>
-      <li>Platforms that want better decision intelligence for users</li>
-    </ul>
-  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Who this is for</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Property & membership networks</h3>
+          <p>Help members decide faster—and follow through with confidence.</p>
+        </div>
+        <div class="card">
+          <h3>Experience providers</h3>
+          <p>Better matching means higher conversion and fewer cancellations.</p>
+        </div>
+        <div class="card">
+          <h3>Travel advisors & concierge teams</h3>
+          <p>Augment human taste with a memory-driven decision engine.</p>
+        </div>
+      </div>
 
-  <section id="why-partner">
-    <h2>Why Partner With AuroKey</h2>
-    <p>
-      Most systems focus on inventory and transactions.
-      AuroKey focuses on decision quality—powered by memory, preference learning, and clear tradeoffs.
-    </p>
-    <p>
-      Partners benefit because decisions get made faster, with higher confidence—and users follow through.
-    </p>
-  </section>
+      <hr class="soft" />
 
-  <section id="cta">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:partners@aurokey.one">partners@aurokey.one</a></p>
+      <h2>Why partner with AuroKey</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Higher conversion</h3>
+          <p>Users commit faster when tradeoffs are explicit and personalized.</p>
+        </div>
+        <div class="card">
+          <h3>Lower support load</h3>
+          <p>Fewer back-and-forth loops because decisions are clearer upfront.</p>
+        </div>
+        <div class="card">
+          <h3>Compounding value</h3>
+          <p>Memory creates a moat: each user cycle improves the next.</p>
+        </div>
+      </div>
+    </div>
   </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="small">© AuroKey. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const savedTheme = localStorage.getItem("aurokey_theme");
+  if(savedTheme){ root.setAttribute("data-theme", savedTheme); }
+
+  themeToggle.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("aurokey_theme", next);
+  });
+</script>
 
 </body>
 </html>
-
