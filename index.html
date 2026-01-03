@@ -1,536 +1,315 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AuroKey — Personal Travel Intelligence</title>
-  <meta name="description" content="AuroKey helps you make better travel decisions—faster—by learning what you value and making tradeoffs clear." />
-
-  <style>
-    :root{
-      --bg: #f6f1e7;
-      --bg-2: #fbf8f2;
-      --ink: #0f1a2b;
-      --muted: rgba(15,26,43,.70);
-      --hair: rgba(15,26,43,.12);
-
-      --card: rgba(255,255,255,.72);
-      --shadow: 0 18px 45px rgba(15,26,43,.12);
-      --shadow-soft: 0 10px 28px rgba(15,26,43,.10);
-
-      --navy: #12223a;
-      --navy-2: #0d1a2d;
-      --gold: #a9895b;
-      --gold-2: #c2a77b;
-
-      --radius-lg: 28px;
-      --radius-md: 18px;
-      --max: 1120px;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      color:var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:
-        radial-gradient(1200px 700px at 20% 10%, rgba(169,137,91,.18), transparent 60%),
-        radial-gradient(900px 500px at 80% 15%, rgba(18,34,58,.10), transparent 55%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 45%, var(--bg) 100%);
-    }
-
-    a{ color:var(--ink); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 22px; }
-
-    /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(246,241,231,.70);
-      border-bottom: 1px solid var(--hair);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0; gap:16px;
-    }
-    .brand{ display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.2px; }
-    .brand img{ width:28px; height:28px; border-radius:8px; box-shadow: 0 8px 22px rgba(15,26,43,.10); }
-    .nav-links{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border:1px solid var(--hair);
-      background: rgba(255,255,255,.55);
-      border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(15,26,43,.06);
-      font-size:13px;
-      color:var(--muted);
-      white-space:nowrap;
-    }
-
-    /* HERO */
-    .hero{ padding:52px 0 34px; }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:32px;
-      align-items:center;
-    }
-    @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; }
-    }
-
-    .kicker{
-      font-size:13px; letter-spacing:.12em; text-transform:uppercase;
-      color:rgba(15,26,43,.65);
-      margin:0 0 10px;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:52px;
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    @media (max-width: 600px){ h1{ font-size:38px; } }
-
-    .lead{
-      margin:0 0 18px;
-      font-size:18px;
-      line-height:1.55;
-      color:var(--muted);
-      max-width: 56ch;
-    }
-
-    .feature-bullets{
-      margin:18px 0 22px;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-      max-width: 56ch;
-    }
-    .feature-bullets li{
-      display:flex; gap:10px; align-items:flex-start;
-      color:rgba(15,26,43,.78);
-      font-size:14.5px; line-height:1.45;
-    }
-    .dot{
-      width:10px; height:10px; margin-top:6px;
-      border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, var(--gold-2), var(--gold));
-      box-shadow: 0 10px 18px rgba(169,137,91,.22);
-      flex:0 0 auto;
-    }
-
-    .cta-row{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
-      margin-top:18px;
-    }
-    .input{
-      min-width: 240px;
-      flex: 1 1 260px;
-      padding:12px 14px;
-      border-radius: 999px;
-      border:1px solid var(--hair);
-      background: rgba(255,255,255,.68);
-      color:var(--ink);
-      outline:none;
-      box-shadow: 0 12px 26px rgba(15,26,43,.07);
-    }
-    .input::placeholder{ color: rgba(15,26,43,.50); }
-
-    .btn{
-      border:0; cursor:pointer;
-      padding:12px 16px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--navy), var(--navy-2));
-      color:#fff;
-      font-weight:600;
-      box-shadow: 0 18px 40px rgba(18,34,58,.18);
-      transition: transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(18,34,58,.22); }
-    .btn:active{ transform: translateY(0px); }
-
-    .tiny{ font-size:12.5px; color: rgba(15,26,43,.55); margin-top:10px; }
-
-    /* HERO screenshots panel */
-    .shot-panel{
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(15,26,43,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.56));
-      box-shadow: var(--shadow);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-    }
-    .shot-panel:before{
-      content:"";
-      position:absolute;
-      inset:-80px -120px auto -120px;
-      height:240px;
-      background: radial-gradient(closest-side, rgba(169,137,91,.16), transparent 70%);
-      pointer-events:none;
-    }
-    .shots{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:end;
-    }
-    @media (max-width: 520px){ .shots{ grid-template-columns: 1fr; } }
-
-    .shot{
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.70);
-      box-shadow: var(--shadow-soft);
-    }
-    .shot img{ width:100%; height:auto; display:block; }
-    .shot-label{
-      padding:10px 12px;
-      font-size:12.5px;
-      color:rgba(15,26,43,.70);
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      border-top: 1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.62);
-    }
-    .badge{
-      font-size:11px;
-      padding:4px 10px;
-      border-radius:999px;
-      border:1px solid rgba(15,26,43,.12);
-      background: rgba(255,255,255,.55);
-      color: rgba(15,26,43,.70);
-      white-space:nowrap;
-    }
-
-    /* Sections */
-    .divider{ height:1px; background: var(--hair); }
-    .section{ padding:34px 0; }
-
-    h2{ margin:0 0 10px; font-size:26px; letter-spacing:-.01em; }
-    .sublead{
-      margin:0 0 18px;
-      color: var(--muted);
-      line-height:1.6;
-      max-width: 72ch;
-    }
-
-    /* Bubbles */
-    .bubbles{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    @media (max-width: 920px){ .bubbles{ grid-template-columns: 1fr; } }
-    .bubble{
-      border-radius: 18px;
-      border:1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.70);
-      box-shadow: 0 16px 40px rgba(15,26,43,.10);
-      padding:16px 16px 14px;
-    }
-    .bubble h3{ margin:0 0 6px; font-size:14px; letter-spacing:.01em; }
-    .bubble p{ margin:0; color: rgba(15,26,43,.72); font-size:13.5px; line-height:1.45; }
-
-    /* Panels */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:22px;
-      align-items:start;
-      margin-top:18px;
-    }
-    @media (max-width: 980px){ .two-col{ grid-template-columns: 1fr; } }
-
-    .panel{
-      border-radius: var(--radius-md);
-      border:1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.68);
-      box-shadow: var(--shadow-soft);
-      padding:18px;
-    }
-    .panel h3{ margin:0 0 8px; font-size:16px; letter-spacing:-.01em; }
-    .panel p{ margin:0 0 10px; color: rgba(15,26,43,.72); line-height:1.6; font-size:14px; }
-    .panel ul{ margin:10px 0 0; padding-left:18px; color: rgba(15,26,43,.75); line-height:1.6; font-size:14px; }
-
-    /* FIXED Showcase: no empty card, no dead space */
-    .showcase-grid{
-      display:grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:14px;
-    }
-    @media (max-width: 980px){ .showcase-grid{ grid-template-columns: 1fr; } }
-
-    .showcase-copy{
-      border-radius: var(--radius-lg);
-      border:1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.72);
-      box-shadow: var(--shadow-soft);
-      padding:20px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height: 320px;
-    }
-    @media (max-width: 980px){
-      .showcase-copy{ min-height: auto; }
-    }
-
-    .micro{
-      font-size:12.5px;
-      color: rgba(15,26,43,.62);
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      margin:0 0 10px;
-    }
-    .showcase-copy h3{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:-.01em;
-    }
-    .showcase-copy p{
-      margin:0 0 12px;
-      color: rgba(15,26,43,.72);
-      line-height:1.65;
-      font-size:14px;
-      max-width: 64ch;
-    }
-    .quote{
-      margin-top:10px;
-      padding-top:12px;
-      border-top:1px solid rgba(15,26,43,.10);
-      color: rgba(15,26,43,.70);
-      font-size:13.5px;
-      line-height:1.55;
-    }
-
-    .showcase-media{
-      border-radius: var(--radius-lg);
-      border:1px solid rgba(15,26,43,.10);
-      background: rgba(255,255,255,.60);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      min-height: 320px;
-    }
-    @media (max-width: 980px){
-      .showcase-media{ min-height: auto; }
-    }
-
-    /* Critical: constrain image height so it doesn't force blank space */
-    .showcase-media img{
-      max-width:100%;
-      height:auto;
-      max-height: 520px; /* keeps it from towering over the copy */
-      display:block;
-      border-radius: 22px;
-      border:1px solid rgba(15,26,43,.10);
-      box-shadow: 0 16px 36px rgba(15,26,43,.12);
-      object-fit: contain;
-    }
-
-    footer{
-      padding:26px 0 40px;
-      color: rgba(15,26,43,.55);
-      font-size:12.5px;
-    }
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      border-top: 1px solid var(--hair);
-      padding-top:16px;
-    }
-
-    .sr-only{
-      position:absolute;
-      width:1px; height:1px;
-      padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0);
-      white-space:nowrap; border:0;
-    }
-  </style>
+  <meta name="description" content="AuroKey improves decision quality in travel planning—moving people from uncertainty to confident action, faster, with better outcomes." />
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="page">
 
-  <!-- NAV -->
-  <div class="nav">
-    <div class="wrap nav-inner">
-      <div class="brand">
-        <img src="logo.png" alt="AuroKey logo" />
-        <span>AuroKey</span>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="AuroKey logo" />
+          <span>AuroKey</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="learn-more.html">Learn more</a>
+          <a href="partners.html">Partner access</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            Light / Dark
+          </button>
+          <a class="btn btn-primary" href="#early-access">Get early access</a>
+        </div>
       </div>
+    </header>
 
-      <div class="nav-links">
-        <a class="pill" href="learn-more.html">Learn more</a>
-        <a class="pill" href="partners.html">Partner access</a>
-      </div>
-    </div>
-  </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <span class="pill">Personal Travel Intelligence • Built for decision-making</span>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="kicker">Personal travel intelligence • Built for decision-making</p>
-        <h1>Travel better—without doing the work.</h1>
-        <p class="lead">
-          AuroKey learns what you value and turns that into clear options and confident decisions—so you can move from
-          uncertainty to “yes” faster.
+        <h1>Move from uncertainty to confident action.</h1>
+
+        <p>
+          AuroKey is focused on <strong>decision quality</strong>. We help people move from uncertainty to confident
+          action—faster, and with better outcomes.
         </p>
 
-        <ul class="feature-bullets">
-          <li><span class="dot"></span><span><strong>Memory</strong> that compounds over time</span></li>
-          <li><span class="dot"></span><span><strong>Preference learning</strong> (not static profiles)</span></li>
-          <li><span class="dot"></span><span><strong>Constraint resolution</strong> when tradeoffs matter</span></li>
-          <li><span class="dot"></span><span><strong>Tradeoff explanations</strong> you can trust</span></li>
-        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#early-access">Get early access</a>
+          <a class="btn" href="learn-more.html">See how it works</a>
+        </div>
 
-        <form class="cta-row" action="#" method="post" onsubmit="return false;">
-          <label class="sr-only" for="email">Email</label>
-          <input id="email" class="input" type="email" placeholder="Enter your email" autocomplete="email" />
-          <button class="btn" type="submit">Join the waitlist</button>
-        </form>
-        <div class="tiny">No spam. Early access invitations only.</div>
-      </div>
-
-      <div class="shot-panel">
-        <div class="shots">
-          <figure class="shot">
-            <img src="screenshotsdecision-light.PNG" alt="AuroKey light mode screenshot" />
-            <figcaption class="shot-label">
-              <span>Light mode</span>
-              <span class="badge">Decision Summary</span>
-            </figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="screenshotsdecision-dark.jpg" alt="AuroKey dark mode screenshot" />
-            <figcaption class="shot-label">
-              <span>Dark mode</span>
-              <span class="badge">Decision Summary</span>
-            </figcaption>
-          </figure>
+        <div class="trust-note">
+          Built to earn trust: explicit tradeoffs, clear reasoning, and memory that improves over time.
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <div class="wrap"><div class="divider"></div></div>
-
-  <!-- WHAT AUROKEY IS -->
-  <section class="section">
-    <div class="wrap">
-      <h2>What AuroKey is</h2>
-      <p class="sublead">
-        AuroKey is focused on decision quality. We help people move from uncertainty to confident
-        action—faster, and with better outcomes.
-      </p>
-
-      <div class="bubbles">
-        <div class="bubble">
-          <h3>Personal Travel OS</h3>
-          <p>Travel intelligence that stays with you—across trips, seasons, and life changes.</p>
-        </div>
-        <div class="bubble">
-          <h3>Decision engine</h3>
-          <p>Built for complex trips: multiple people, competing preferences, and real constraints.</p>
-        </div>
-        <div class="bubble">
-          <h3>Always-on intelligence</h3>
-          <p>It doesn’t stop at “search.” It keeps improving your decision quality over time.</p>
+    <!-- BUBBLES (keep these) -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="bubble">
+            <strong>Personal Travel OS</strong>
+            <span>Travel intelligence that stays with you—across trips, seasons, and life changes.</span>
+          </div>
+          <div class="bubble">
+            <strong>Decision engine</strong>
+            <span>Designed for real tradeoffs: multiple people, competing preferences, real constraints.</span>
+          </div>
+          <div class="bubble">
+            <strong>Always improving</strong>
+            <span>Each trip teaches AuroKey what matters—so the next decision gets easier.</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="two-col">
-        <div class="panel">
-          <h3>Fewer options. Better outcomes.</h3>
-          <p>
-            AuroKey produces a small number of strong choices—ranked and explained—so you can move forward quickly.
-          </p>
-          <ul>
-            <li>Clear “top pick” recommendation</li>
-            <li>Key tradeoffs surfaced early</li>
-            <li>Reasoning written in human language</li>
-          </ul>
-        </div>
+    <!-- AuroKey in Practice -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="m0">What planning with AuroKey actually feels like</h2>
+            <p class="mt12">
+              AuroKey doesn’t ask you to plan your trip. It asks a few questions—then does the thinking for you.
+            </p>
 
-        <div class="panel">
-          <h3>Designed for real tradeoffs</h3>
-          <p>
-            When constraints conflict (time, budget, pace, preferences), AuroKey resolves them explicitly and shows
-            what you’re gaining—and what you’re giving up.
-          </p>
-          <ul>
-            <li>Practical constraint resolution</li>
-            <li>Confidence-building explanations</li>
-            <li>Less second-guessing</li>
-          </ul>
+            <div class="grid grid-2 mt24">
+              <div class="card">
+                <div class="card-inner">
+                  <h3>1) You tell AuroKey what matters</h3>
+                  <p>Trip length, who’s going, what you care about this time—quiet or energy, food or views, one base or moving.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-inner">
+                  <h3>2) AuroKey evaluates real options</h3>
+                  <p>It weighs destinations, timing, logistics, and constraints—then narrows the field without overwhelming you.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-inner">
+                  <h3>3) You get a Decision Summary</h3>
+                  <p>One recommended option, a small number of viable alternatives, and tradeoffs explained in plain language.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-inner">
+                  <h3>4) You move forward—confidently</h3>
+                  <p>No reopening ten tabs. No second-guessing. Just a decision that fits.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FIXED SECTION: no blank space -->
-  <section class="section">
-    <div class="wrap">
-      <h2>Decision Summary, the way it should be</h2>
-      <p class="sublead">
-        AuroKey doesn’t just recommend. It makes the reasoning legible and highlights the tradeoffs—so the shortest path
-        to “yes” feels obvious.
-      </p>
+    <!-- Decision Summary split (FIXED: no giant blank space, no oversized image) -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div class="card">
+            <div class="card-inner">
+              <h2 class="m0">Decision Summary, the way it should be</h2>
+              <p class="mt12">
+                AuroKey doesn’t just recommend. It shows the reasoning, highlights the risks, and gives you the shortest path to “yes.”
+              </p>
 
-      <div class="showcase-grid">
-        <div class="showcase-copy">
-          <div class="micro">How it works</div>
-          <h3>Ranked options, explained in plain language</h3>
-          <p>
-            Start broad (“spring break, 7 days”) or specific (“quiet, food-first, no redeyes”).
-            AuroKey adapts either way—then gives you a recommendation you can defend.
-          </p>
-          <p>
-            You’ll see what matters most, why the top pick fits, and the tradeoffs you’re accepting.
-          </p>
-          <div class="quote">
-            “We looked carefully at what matters to you. Here’s the option that fits best.”
+              <ul class="clean">
+                <li>One top recommendation with clear “why this fits”</li>
+                <li>Alternatives you can actually consider</li>
+                <li>Tradeoffs surfaced early (not buried later)</li>
+                <li>Memory that compounds across trips</li>
+              </ul>
+
+              <p class="mt16">
+                Start broad (“spring break, 7 days”) or specific (“quiet, food-first, no redeyes”).
+                AuroKey adapts either way.
+              </p>
+
+              <div class="form-row" style="margin-top:18px;">
+                <a class="btn btn-primary" href="#early-access">Get early access</a>
+                <a class="btn" href="learn-more.html">Learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-frame">
+            <div class="screenshot">
+              <!-- Light screenshot by default; user can toggle site theme, but screenshot stays sane -->
+              <img src="screenshotsdecision-light.PNG" alt="AuroKey Decision Summary (Light)" loading="lazy" />
+              <div class="caption">One recommendation. Clear reasoning. No guesswork.</div>
+            </div>
           </div>
         </div>
 
-        <div class="showcase-media">
-          <img src="screenshotsonboarding.PNG" alt="AuroKey onboarding screenshot" />
+        <!-- Optional: show both light/dark as small toggles, not giant -->
+        <div class="grid grid-2 mt24">
+          <div class="media-frame">
+            <div class="screenshot">
+              <img src="screenshotsdecision-light.PNG" alt="AuroKey Decision Summary Light" loading="lazy" />
+              <div class="caption">Light mode</div>
+            </div>
+          </div>
+          <div class="media-frame">
+            <div class="screenshot">
+              <img src="screenshotsdecision-dark.jpg" alt="AuroKey Decision Summary Dark" loading="lazy" />
+              <div class="caption">Dark mode</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="wrap foot">
-      <div>© AuroKey. All rights reserved.</div>
-      <div>
-        <a href="learn-more.html">Learn more</a>
-        &nbsp;•&nbsp;
-        <a href="partners.html">Partner access</a>
+    <!-- Trust -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="m0">Designed to earn trust, not clicks</h2>
+            <p class="mt12">
+              AuroKey is built around clarity: explicit tradeoffs, reasoning you can evaluate, and preferences that improve over time.
+            </p>
+
+            <div class="grid grid-3 mt24">
+              <div class="card">
+                <div class="card-inner">
+                  <h3>Tradeoffs are explicit</h3>
+                  <p>You see what you’re giving up—not just what you’re getting.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-inner">
+                  <h3>Memory works in your favor</h3>
+                  <p>It remembers what mattered last time—and what didn’t. Each trip improves the next.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-inner">
+                  <h3>No black-box answers</h3>
+                  <p>No “because the model said so.” You get reasoning you can agree with—or challenge.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
+    <!-- What’s launching first -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-inner">
+              <h2 class="m0">What we’re launching first</h2>
+              <p class="mt12">
+                AuroKey is launching in focused stages, starting with the core decision experience.
+              </p>
+
+              <h3 class="mt24">Phase 1: Decision Summaries</h3>
+              <ul class="clean">
+                <li>One recommended option</li>
+                <li>Ranked alternatives</li>
+                <li>Clear explanations of why it fits</li>
+                <li>Key tradeoffs surfaced early</li>
+              </ul>
+
+              <h3 class="mt24">Phase 2: Preference Memory</h3>
+              <ul class="clean">
+                <li>Learn what matters to you over time</li>
+                <li>Reduce repeated setup</li>
+                <li>Improve recommendations trip-to-trip</li>
+              </ul>
+
+              <h3 class="mt24">Phase 3: Trip Assembly</h3>
+              <ul class="clean">
+                <li>See how the trip comes together</li>
+                <li>Timing, flow, and structure</li>
+                <li>Fewer decisions downstream</li>
+              </ul>
+
+              <p class="mt16">
+                We’re intentionally starting with the hardest part: <strong>making the right decision</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-frame">
+            <div class="screenshot">
+              <img src="screenshotsonboarding.PNG" alt="AuroKey onboarding screen" loading="lazy" />
+              <div class="caption">Tell AuroKey what matters once—then refine over time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Early access -->
+    <section class="section" id="early-access">
+      <div class="container">
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="m0">Get early access</h2>
+            <p class="mt12">
+              We’re inviting a small group of early users as we prepare to launch.
+            </p>
+
+            <!-- Simple mailto form (works on GitHub Pages with no backend).
+                 Replace the email with your preferred address. -->
+            <form class="form-row" action="mailto:todd@aurokey.one" method="post" enctype="text/plain">
+              <input class="input" type="email" name="email" placeholder="Your email" required />
+              <button class="btn btn-primary" type="submit">Request access</button>
+            </form>
+
+            <div class="small">
+              No spam. No pressure. Just early access when we’re ready.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div>© AuroKey. All rights reserved. • <a href="learn-more.html">Learn more</a> • <a href="partners.html">Partner access</a></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Theme toggle (light/dark) using data-theme attribute + localStorage
+    (function() {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('aurokey_theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'light';
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('aurokey_theme', next);
+      });
+    })();
+  </script>
 </body>
 </html>
-
